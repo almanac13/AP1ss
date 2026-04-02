@@ -40,7 +40,7 @@ func (h *PaymentHandler) CreatePayment(c *gin.Context) {
 		return
 	}
 
-	// Idempotency-Key support (BONUS)
+	// Idempotency-Key support
 	idempotencyKey := c.GetHeader("Idempotency-Key")
 
 	payment, err := h.usecase.ProcessPayment(req.OrderID, req.Amount, idempotencyKey)
